@@ -1,6 +1,7 @@
 import RPi.GPIO as GPIO
 
 GPIO.setmode(GPIO.BOARD)
+#can be changed
 
 class Pin:
     def __init__ (self, name, number, setup, pwm = False, freq = 50):
@@ -13,24 +14,15 @@ class Pin:
         if pwm:
             self.pwm = GPIO.PWM(number, freq)
             self.pwm.start(0)
-
-    '''def output (self, integer):
-        if integer > 0:
-            GPIO.output(self.number, GPIO.HIGH)
-        elif integer == 0:
-            GPIO.output(self.number, GPIO.LOW)
-    def output (self, gpio):
-        GPIO.output(self.number, gpio)
-    def output (self, boolean)
-        if boolean:
-            GPIO.output(self.number, GPIO.HIGH)
-        elif not boolean:
-            GPIO.output(self.number, GPIO.LOW)'''
+    
     def output (self, value):
         if value == 1 or value == GPIO.HIGH or value == True:
             GPIO.output(self.number, GPIO.HIGH)
         elif value == 0 or value == GPIO.LOW or value == False:
             GPIO.output(self.number, GPIO.LOW)
+    
+    def input (self):
+        return GPIO.input(self.number) == 1
 
 Pins = []
 
