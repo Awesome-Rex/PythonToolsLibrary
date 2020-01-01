@@ -31,6 +31,21 @@ def GetPin(name):
         if x.name == name:
             return x
 
+class RGBMatrix:
+    def __init__(self, anodesRGB, cathodes):
+        self.image = None
+        self.anodesRGB = anodesRGB
+        self.cathodes = cathodes
+
+    def imagePixel (self):
+        pass
+    
+    def imageInterpret (self):
+        pass
+    
+    def render(self):
+        pass
+
 def Exit ():
     for x in Pins:
         if Pins[x].pwm is not None:
