@@ -9,6 +9,8 @@ class Pin:
         self.number = number
         self.setup = setup
         GPIO.setup(self.number, self.setup)
+        if setup == GPIO.OUT:
+            GPIO.output(self.number, GPIO.LOW)
 
         self.pwm = None
         if pwm:
@@ -32,9 +34,9 @@ def GetPin(name):
             return x
 
 class RGBMatrix:
-    def __init__(self, anodesRGB, cathodes):
+    def __init__(self, anodes, cathodes):
         self.image = None
-        self.anodesRGB = anodesRGB
+        self.anodes = anodes
         self.cathodes = cathodes
 
     def imagePixel (self):
