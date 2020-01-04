@@ -1,5 +1,8 @@
 import os
 import sys
+
+import subprocess
+
 import REXtools.str
 
 #using raw strings
@@ -41,6 +44,7 @@ def addFiles (files = ["."]):
 def run(command):
     #subprocesses
     #test comment
+    subprocess.run(command, shell=True)
     pass
 def runAll (commands):
     for x in commands:
