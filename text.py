@@ -58,20 +58,13 @@ def toList (string, gap, r = False, l = False):
     
     while n < scope:
         if testString[n:n+len(gap)] == gap:
-            nb = 0
-            
-            for b in range(n+1en(gap), len(testString))
-                if testString[b:b+len(gap)] == gap:
-                    nb = b
-                    break
-            
-            ls.append(testString[n+len(gap):nb])
+            ls.append(testString[0:n])
             testString = testString[n+len(gap):len(testString)]
             n = 0
             scope = len(testString)
 
             print (testString)
-        elif n == 0:
+        elif n == scope-1:
             ls.append(testString)
             testString = ""
             n = 0
