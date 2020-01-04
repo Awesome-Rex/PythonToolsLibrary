@@ -28,3 +28,17 @@ def unEsc (string):
             newString += string[x]
 
     return newString
+
+def fromList (ls, space, l = False, r = False):
+    newString = ""
+    
+    if l:
+        newString = space
+    
+    for x in ls:
+        newString += x + space
+
+    if not r:
+        newString = newString[0:((len(newString) - len(space))+1)]
+
+    return newString
