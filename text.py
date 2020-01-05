@@ -49,21 +49,24 @@ def fromList (ls, gap, l = False, r = False):
         newString = newString[0:-len(gap)]
 
     return newString
-def toList (string, gap, r = False, l = False):
+def toList (string, gap, esc = "", r = True):
     ls = []
     testString = string
-
+    if r and testString[-len(gap):0] != gap:
+        testString += gap
+    
     scope = len(testString)
     n = 0
     
     while n < scope:
-        if testString[n:n+len(gap)] == gap:
+        if testString[n:n+len(gap)] == gap and esc != "" and testString[n-len(esc):n] != esc:
             ls.append(testString[0:n])
             testString = testString[n+len(gap):len(testString)]
             n = 0
             scope = len(testString)
-
-            print (testString)
+        elif testString[n-len(esc):n] == esc:
+            testString = testString[len(gap):len(testString)]
+            scope = len(testString)
         elif n == scope-1:
             ls.append(testString)
             testString = ""
