@@ -8,8 +8,14 @@ import REXtools.text as TXT
 #using raw strings
 installPath = os.path.dirname(sys.executable)
 
-def packagePath (name = ""):
-    return InstallPath + r"\Lib\site-packages\"" + name
+packagePaths = {
+"win" : r"\Lib\sit-packages\"",
+"pi" : {"single" : r"~\.local\lib\python",
+        "system" : r"\usr\local\lib\python",
+        "apt" : r"\usr\lib\python"}
+}
+def packagePath (os, version = 3, name = ""):
+    return os + str(version) + "\\" + name
 
 def changeDir(name):
     return "cd " + name
