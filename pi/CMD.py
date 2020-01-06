@@ -3,7 +3,7 @@ import sys
 
 import subprocess
 
-import REXtools.text as TXT
+import REXtools.TXT as TXT
 
 #using raw strings
 installPath = os.path.dirname(sys.executable)
